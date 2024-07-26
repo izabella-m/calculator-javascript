@@ -1,19 +1,21 @@
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('button');
 
-
 /* Armazena valores */
 let selectedButtonNumber = '';
 let selectedButtontOperator = '';
 let previousNumber = '';
+let displayResult = '';
 
 /* Funcionalidades dos valores */
 
 buttons.forEach(button => {
   button.addEventListener('click', () => {
     const value = button.textContent;
+    const action = button.dataset.action;
+    
     if 
-      (value === 'delete') {
+      (action === 'delete') {
         selectedButtonNumber = selectedButtonNumber.slice(0, -1);
         display.value = selectedButtonNumber;
     } else if (value === 'c') {
@@ -47,9 +49,15 @@ buttons.forEach(button => {
       display.value = selectedButtonNumber;
       selectedButtontOperator = '';
       previousNumber = '';
+      displayResult = true;
     } else {
-      selectedButtonNumber += value;
-      display.value = selectedButtonNumber;
+      if (displayResult && !isNaN(value)) { 
+        selectedButtonNumber = value;
+        displayResult = false; // Reseta o estado
+    } else {
+        selectedButtonNumber += value;
+    }
+    display.value = selectedButtonNumber;
     }
   });
 });
