@@ -27,6 +27,30 @@ buttons.forEach(button => {
       selectedButtonNumber = '';
     } else if (value === '=') {
       let result;
-  };
+      switch (selectedButtontOperator) {
+        case '+':
+          result = parseFloat(previousNumber) + parseFloat(selectedButtonNumber);
+          break;
+        case '-':
+          result = parseFloat(previousNumber) - parseFloat(selectedButtonNumber);
+          break;
+        case '*':
+          result = parseFloat(previousNumber) * parseFloat(selectedButtonNumber);
+          break;
+        case '/':
+          result = parseFloat(previousNumber) / parseFloat(selectedButtonNumber);
+          break;
+        default:
+          return;
+      }
+      selectedButtonNumber = result.toString();
+      display.value = selectedButtonNumber;
+      selectedButtontOperator = '';
+      previousNumber = '';
+    } else {
+      selectedButtonNumber += value;
+      display.value = selectedButtonNumber;
+    }
+  });
 });
-})
+
