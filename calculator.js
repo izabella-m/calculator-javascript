@@ -40,7 +40,11 @@ buttons.forEach(button => {
           result = parseFloat(previousNumber) * parseFloat(selectedButtonNumber);
           break;
         case '/':
-          result = parseFloat(previousNumber) / parseFloat(selectedButtonNumber);
+          if (parseFloat(selectedButtonNumber) === 0) {
+            result = 'Erro';
+          } else {
+              result = parseFloat(previousNumber) / parseFloat(selectedButtonNumber);
+          }
           break;
         default:
           return;
