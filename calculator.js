@@ -13,16 +13,16 @@ buttons.forEach(button => {
   button.addEventListener('click', () => {
     const value = button.textContent;
     const action = button.dataset.action;
-    
+
     if 
-      (action === 'delete') {
-        selectedButtonNumber = selectedButtonNumber.slice(0, -1);
-        display.value = selectedButtonNumber;
+    (action === 'delete') {
+      selectedButtonNumber = selectedButtonNumber.slice(0, -1);
+      display.value = selectedButtonNumber;
     } else if (value === 'c') {
-        selectedButtonNumber = '';
-        selectedButtontOperator = '';
-        previousNumber = '';
-        display.value = '';
+      selectedButtonNumber = '';
+      selectedButtontOperator = '';
+      previousNumber = '';
+      display.value = '';
     } else if (value === '+' || value === '-' || value === '*' || value === '/') {
       selectedButtontOperator = value;
       previousNumber = selectedButtonNumber;
@@ -43,7 +43,7 @@ buttons.forEach(button => {
           if (parseFloat(selectedButtonNumber) === 0) {
             result = 'Erro';
           } else {
-              result = parseFloat(previousNumber) / parseFloat(selectedButtonNumber);
+            result = parseFloat(previousNumber) / parseFloat(selectedButtonNumber);
           }
           break;
         default:
@@ -58,11 +58,14 @@ buttons.forEach(button => {
       if (displayResult && !isNaN(value)) { 
         selectedButtonNumber = value;
         displayResult = false; // Reseta o estado
-    } else {
-        selectedButtonNumber += value;
-    }
-    display.value = selectedButtonNumber;
+      } else {
+        if (value === '.' && selectedButtonNumber === '') {
+          selectedButtonNumber = '0.'; // ao digitar '.' direto,adiciona zero antes
+        } else {
+          selectedButtonNumber += value;
+        }
+      }
+      display.value = selectedButtonNumber;
     }
   });
 });
-
