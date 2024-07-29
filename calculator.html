@@ -1,56 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script defer src="calculator.js"></script>
-</head>
-<body>
-    <div id="cardCalculator">
-        <div id="cardResultCalculator">
-            <input type="text" id="display" readonly>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script defer src="calculator.js"></script>
+    </head>
+    <body>
+        <div id="cardCalculator">
+            <div id="cardResultCalculator">
+                <input type="text" id="display" readonly>
+            </div>
+            <div id="conteinerButtons">
+                <button class="orangeButton">c</button>
+                <button data-action="delete"><i class="fa-solid fa-delete-left"></i></button>
+                <button>/</button>
+                <button>x</button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>-</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>+</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>.</button>
+            </div>
+            <div>
+                <button >0</button>
+                <button class="orangeButton">=</button>
+            </div>
         </div>
-        <div id="conteinerButtons">
-            <button class="buttonDark">c</button>
-            <button class="buttonDark"><i class="fa-solid fa-delete-left"></i></button>
-            <button class="buttonDark">/</button>
-            <button>x</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>-</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>+</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>.</button>
-        </div>
-        <div>
-            <button>0</button>
-            <button>=</button>
-        </div>
-    </div>
- 
-</body>
-
-<style>
-    body {
-        background: #3977f3;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0; 
-    }
-    #cardCalculator {
+    </body>
+    <style>
+        body {
+            background: #3977f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0; 
+        }
+        #cardCalculator {
             width: 400px;
-            height: 520px;
+            height: 550px;
             background: #505050;
             border-radius: 25px;
             box-shadow: 0 10px 20px #373737;
@@ -59,13 +57,19 @@
             justify-content: start;
             align-items: center;
         }
-        #cardResultCalculator {
-            width: 90%;
-            height: 100px;
+        #cardResultCalculator input {
+            width: 330px;
+            height: 80px;
             background: #373737;
             margin: 10px;
             margin-top: 20px;
             border-radius: 25px;
+            border: 0;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Poppins';
+            color: #ffffff;
+            padding-left: 30px;
         }
         #conteinerButtons {
             width: 90%; /* Ocupa toda a largura do cardCalculator */
@@ -91,9 +95,8 @@
         button:hover {
             background-color: #0056b3; 
         }
-        .buttonDark {
-            background: #838282;
-            box-shadow: 0 10px 20px #000000;
+        .orangeButton {
+            background: #f8a920;
         }
         .containerButtons {
             flex-direction: column;
@@ -104,8 +107,6 @@
         .item2 {
             width: 60%;
         }
-</style>
-
-
+    </style>
 </html>
 
